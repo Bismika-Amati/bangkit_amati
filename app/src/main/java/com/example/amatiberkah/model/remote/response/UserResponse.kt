@@ -1,4 +1,4 @@
-package com.example.amatiberkah
+package com.example.amatiberkah.model.remote.response
 
 data class UserResponse (
     val error: Boolean,
@@ -10,4 +10,4 @@ data class LoginResult (
     val token: String,
     val name: String,
     val userId: String
-        )
+    )
