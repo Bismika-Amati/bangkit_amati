@@ -6,4 +6,5 @@
     <string name="password">Password</string>
     <string name="phone_number">Phone Number</string>
     <string name="register">Register</string>
+    <string name="lorem_for_example">malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero</string>
 </resources>
