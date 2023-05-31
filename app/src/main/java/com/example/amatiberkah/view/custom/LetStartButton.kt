@@ -31,7 +31,7 @@ class LetStartButton: AppCompatButton {
         background = bgButton
 
         setTextColor(txtColor)
-        textSize = 12f
+        textSize = 10f
         gravity = Gravity.CENTER
         text = resources.getString(R.string.letstartbtn_available)
     }
