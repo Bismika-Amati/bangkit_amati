@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <string name="app_name">AMATIBerkah</string>
     <string name="letstartbtn_available">Let\'s Start</string>
     <string name="name">Name</string>
@@ -6,5 +6,16 @@
     <string name="password">Password</string>
     <string name="phone_number">Phone Number</string>
     <string name="register">Register</string>
-    <string name="lorem_for_example">malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero</string>
+    <string name="labuan_bajo">Labuan Bajo</string>
+    <string name="address">Alamat : Perumahan Bumis asik damai Labuan Baju,50339. Labuan bajo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="tab_text_1">Description</string>
+    <string name="tab_text_2">Problems</string>
+    <string name="tab_text_3">Location</string>
+
+    <string name="content_tab_description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the </string>
+    <string name="content_tab_problems">Problems Content</string>
+    <string name="content_tab_map">Location Content</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
