@@ -3,7 +3,7 @@ package com.example.amatiberkah.model.remote.response
 data class UserResponse (
     val error: Boolean,
     val message: String,
-    val resul: List<LoginResult>
+    val result: LoginResult
 )
 
 data class LoginResult (
