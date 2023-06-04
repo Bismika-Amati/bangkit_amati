@@ -15,10 +15,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.toMyActivity.setOnClickListener{
-            val intent = Intent(this@MainActivity, ExploreVillageDescriptionActivity::class.java)
-            startActivity(intent)
-
-        }
+//        binding.toMyActivity.setOnClickListener{
+//            val intent = Intent(this@MainActivity, ExploreVillageDescriptionActivity::class.java)
+//            startActivity(intent)
+//
+//        }
     }
 }
