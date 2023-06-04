@@ -6,6 +6,8 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.amatiberkah.databinding.ActivityRegisterBinding
+import com.example.amatiberkah.model.remote.response.RegisterDataResponse
+import com.example.amatiberkah.model.remote.response.RegisterResponse
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

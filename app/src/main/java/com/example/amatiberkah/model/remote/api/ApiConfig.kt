@@ -28,5 +28,22 @@ class ApiConfig {
 
             return retrofit.create(ApiServiceAuth::class.java)
         }
+
+        fun getApiServiceMasterData(): ApiServiceMasterData {
+            val loggingInterceptor =
+                HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+
+            val client = OkHttpClient.Builder()
+                .addInterceptor(loggingInterceptor)
+                .build()
+
+            val retrofit = Retrofit.Builder()
+                .baseUrl("${BASEURL}/master-data/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build()
+
+            return retrofit.create(ApiServiceMasterData::class.java)
+        }
     }
 }

@@ -1,6 +1,8 @@
 package com.example.amatiberkah.model.repository
 
+import com.example.amatiberkah.model.local.UserPreferences
 import com.example.amatiberkah.model.remote.api.ApiServiceAuth
+import com.example.amatiberkah.model.remote.response.LoginResponse
 import com.example.amatiberkah.model.remote.response.RegisterResponse
 import com.example.amatiberkah.utils.handleError
 import kotlinx.coroutines.flow.Flow
@@ -9,7 +11,8 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class AuthRepository @Inject constructor(
-    private val apiServiceAuth: ApiServiceAuth
+    private val apiServiceAuth: ApiServiceAuth,
+    private val userPreferences: UserPreferences
 ) {
     suspend fun registerByRole(
         fullName: String,
@@ -39,6 +42,24 @@ class AuthRepository @Inject constructor(
                 subDistrictId,
                 postcode,
                 address
+            )
+            emit(Result.success(response))
+        }.catch {
+            emit(Result.failure(Throwable(handleError(it))))
+        }
+    }
+
+    suspend fun login(
+        email: String,
+        password: String,
+    ): Flow<Result<LoginResponse>> {
+        return flow {
+            val response = apiServiceAuth.login(
+                email,
+                password
+            )
+            userPreferences.saveUserToken(
+                response.data.accessToken
             )
             emit(Result.success(response))
         }.catch {

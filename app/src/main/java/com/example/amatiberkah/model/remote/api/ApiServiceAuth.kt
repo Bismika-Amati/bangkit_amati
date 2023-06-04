@@ -1,6 +1,7 @@
 package com.example.amatiberkah.model.remote.api
 
 import com.example.amatiberkah.model.remote.response.GeneralResponse
+import com.example.amatiberkah.model.remote.response.LoginResponse
 import com.example.amatiberkah.model.remote.response.RegisterResponse
 import com.example.amatiberkah.model.remote.response.UserResponse
 import retrofit2.Call
@@ -21,7 +22,7 @@ interface ApiServiceAuth {
         @Field("photo") photo: String?,
         @Field("provinceId") provinceId: String?,
         @Field("cityId") cityId: String?,
-        @Field("districtId") districtId: String?,re
+        @Field("districtId") districtId: String?,
         @Field("subDistrictId") subDistrictId: String?,
         @Field("postcode") postcode: String?,
         @Field("address") address: String?,
@@ -29,8 +30,8 @@ interface ApiServiceAuth {
 
     @POST("login")
     @FormUrlEncoded
-    fun login (
+    suspend fun login (
         @Field("email") email: String,
         @Field("password") password: String
-    ) : Call<UserResponse>
+    ) : LoginResponse
 }

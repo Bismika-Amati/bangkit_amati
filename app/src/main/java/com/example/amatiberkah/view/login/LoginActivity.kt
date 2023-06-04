@@ -3,111 +3,87 @@ package com.example.amatiberkah.view.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.example.amatiberkah.R
 import com.example.amatiberkah.databinding.ActivityLoginBinding
-import com.example.amatiberkah.databinding.ActivityMainBinding
-import com.example.amatiberkah.view.ExploreActivity
-import com.example.amatiberkah.view.ViewModelFactory
+import com.example.amatiberkah.view.AdminActivity
+import com.example.amatiberkah.view.StudentActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityLoginBinding
-    private val loginViewModel by viewModels<LoginViewModel> {
-        ViewModelFactory.getInstance(application)
-    }
-    private lateinit var tokenUser: String
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupLoginAdmin()
-        setupLoginStudent()
+        setupViews()
+
     }
 
-    private fun setupLoginStudent() {
+    private fun setupViews() {
         binding.apply {
-            buttonLogin.setOnClickListener {
-                if (!edLoginEmail.error.isNullOrEmpty() || !edLoginPassword.error.isNullOrEmpty()) {
-                    when {
-                        !edLoginEmail.error.isNullOrEmpty() -> showToast(edLoginEmail.error.toString())
-                        !edLoginPassword.error.isNullOrEmpty() -> showToast(edLoginPassword.error.toString())
+            val loginBtn = buttonLogin
+            loginBtn.setOnClickListener {
+                val email = binding.edLoginEmail.text.toString()
+                val password = binding.edLoginPassword.text.toString()
+                when {
+                    email.isEmpty() -> {
+                        edLoginEmail.error = "Email is Required"
                     }
-                } else {
-                    loginViewModel.apply {
-                        loginStudent(
-                            binding.edLoginEmail.text.toString(),
-                            binding.edLoginPassword.text.toString()
-                        ).also {
-                            token.observe(this@LoginActivity) { tokenUser = it }
-                            isLoggedIn.observe(this@LoginActivity) {
-                                if (it) {
-                                    Log.d("LoginActivity", "login worked")
-                                    showToast("Login Succeed")
-                                    navigateToken(tokenUser)
-                                }
-                            }
-                            error.observe(this@LoginActivity) {
-                                if (!it.isNullOrEmpty()) showToast(
-                                    it
-                                )
-                            }
-                        }
+                    password.isEmpty() -> {
+                        edLoginPassword.error = "Password is Required"
+                    }
+                    else -> {
+                        login(email, password)
                     }
                 }
             }
         }
     }
 
-    private fun setupLoginAdmin() {
-        binding.apply {
-            buttonLogin.setOnClickListener {
-                if (!edLoginEmail.error.isNullOrEmpty() || !edLoginPassword.error.isNullOrEmpty()) {
-                    when {
-                        !edLoginEmail.error.isNullOrEmpty() -> showToast(edLoginEmail.error.toString())
-                        !edLoginPassword.error.isNullOrEmpty() -> showToast(edLoginPassword.error.toString())
-                    }
-                } else {
-                    loginViewModel.apply {
-                        loginAdmin(
-                            binding.edLoginEmail.text.toString(),
-                            binding.edLoginPassword.text.toString()
-                        ).also {
-                            token.observe(this@LoginActivity) { tokenUser = it }
-                            isLoggedIn.observe(this@LoginActivity) {
-                                if (it) {
-                                    Log.d("LoginActivity", "login worked")
-                                    showToast("Login Succeed")
-                                    navigateToken(tokenUser)
-                                }
-                            }
-                            error.observe(this@LoginActivity) {
-                                if (!it.isNullOrEmpty()) showToast(
-                                    it
-                                )
-                            }
+    private fun login(email: String, password: String) {
+        lifecycleScope.launch {
+            try {
+                viewModel.login(email, password).collect {result ->
+                    if(result.isSuccess) {
+                        val loginResponse = result.getOrThrow().data
+                        val role = loginResponse.user.role.name
+                        if (role === "student") {
+                            navigateActivity(role)
+                        } else {
+                            navigateActivity(role)
                         }
                     }
                 }
+            } catch (e: Exception) {
+                showToast("Login Failed: ${e.message}")
             }
         }
     }
-
     private fun showToast(message: String) {
         Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun navigateToken(token: String) {
-        Intent(this@LoginActivity, ExploreActivity::class.java).also {
-            it.putExtra(ExploreActivity.EXTRA_TOKEN, token)
-            startActivity(it)
-            finish()
+    private fun navigateActivity(role: String) {
+        when(role) {
+            "student" -> {
+                val intent = Intent(this@LoginActivity, StudentActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            }
+            "admin" -> {
+                val intent = Intent(this@LoginActivity, AdminActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            }
         }
+
     }
 }
