@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    tools:context=".view.register.RegisterActivity">
 
     <EditText
         android:id="@+id/editTextName"
@@ -62,17 +62,5 @@
         app:layout_constraintEnd_toEndOf="@id/editTextPhoneNumber"
         app:layout_constraintTop_toBottomOf="@id/editTextPhoneNumber"
         android:layout_marginTop="16dp"/>
-
-    <Button
-        android:id="@+id/toMyActivity"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="To Choose Role Activity"
-        app:layout_constraintStart_toStartOf="@id/buttonRegister"
-        app:layout_constraintEnd_toEndOf="@id/buttonRegister"
-        app:layout_constraintTop_toBottomOf="@id/buttonRegister"
-        android:layout_marginTop="16dp"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
