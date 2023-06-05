@@ -9,5 +9,11 @@ data class UserResponse (
 data class LoginResult (
     val token: String,
     val name: String,
-    val userId: String
+    val photoUrl: String,
+    val roles: RoleResponse
     )
+
+data class RoleResponse (
+    val roleId: String,
+    val roleName: String,
+        )

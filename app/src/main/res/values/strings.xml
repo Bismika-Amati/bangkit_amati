@@ -18,4 +18,8 @@
     <string name="content_tab_map">Location Content</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="tab_text_1_course">Description</string>
+    <string name="tab_text_2_course">Skills</string>
+    <string name="tab_text_3_course">Review</string>
 </resources>
