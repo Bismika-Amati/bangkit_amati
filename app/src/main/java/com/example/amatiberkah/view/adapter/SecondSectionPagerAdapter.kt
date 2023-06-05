@@ -1,9 +1,13 @@
-package com.example.amatiberkah.view
+package com.example.amatiberkah.view.adapter
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.amatiberkah.view.DescriptionFragment
+import com.example.amatiberkah.view.MapsFragment
+import com.example.amatiberkah.view.ProblemsFragment
 
-class SectionPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
+class SecondSectionPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
     override fun createFragment(position: Int): Fragment {
         var fragment : Fragment? = null;
         fragment = when (position) {

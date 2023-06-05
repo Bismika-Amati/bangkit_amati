@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".view.AdminActivity">
 
-
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="247dp"
-        android:layout_height="95dp"
-        android:text="Admin Brohhhh"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="113dp" />
+        android:id="@+id/rolestatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:text="HALO GAES AKU ADMIN"/>
+
 </LinearLayout>

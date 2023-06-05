@@ -7,6 +7,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import com.example.amatiberkah.model.local.UserPreferences
 import com.example.amatiberkah.model.remote.api.ApiConfig
 import com.example.amatiberkah.model.remote.api.ApiServiceAuth
+import com.example.amatiberkah.model.remote.api.ApiServiceMasterData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,6 +24,13 @@ class AppModule {
     fun provideApiServiceAuth(): ApiServiceAuth {
         return ApiConfig.getApiServiceAuth()
     }
+
+    @Provides
+    @Singleton
+    fun provideApiServiceMasterData(): ApiServiceMasterData {
+        return ApiConfig.getApiServiceMasterData()
+    }
+
 
     @Provides
     fun provideDataStore(@ApplicationContext context: Context): DataStore<Preferences> {

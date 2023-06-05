@@ -67,4 +67,8 @@ class AuthRepository @Inject constructor(
         }
     }
 
+    fun getToken(): Flow<String?> {
+        return userPreferences.getUserToken()
+    }
+
 }

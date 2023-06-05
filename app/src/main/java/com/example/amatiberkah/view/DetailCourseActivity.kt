@@ -4,32 +4,35 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
 import com.example.amatiberkah.R
+import com.example.amatiberkah.databinding.ActivityDetailCourseBinding
 import com.example.amatiberkah.view.adapter.SectionPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-class ExploreVillageDescriptionActivity : AppCompatActivity() {
+class DetailCourseActivity : AppCompatActivity() {
+
+    lateinit var binding : ActivityDetailCourseBinding
 
     companion object {
         @Suppress
         private val TAB_TITLES = intArrayOf(
-            R.string.tab_text_1,
-            R.string.tab_text_2,
-            R.string.tab_text_3
+            R.string.tab_text_1_course,
+            R.string.tab_text_2_course,
+            R.string.tab_text_3_course
         )
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_explore_village_description)
+        binding = ActivityDetailCourseBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val sectionPagerAdapter = SectionPagerAdapter(this)
-        val viewPager: ViewPager2 = findViewById(R.id.view_pager)
+        val viewPager: ViewPager2 = binding.courseViewPager
         viewPager.adapter = sectionPagerAdapter
-        val tabs: TabLayout = findViewById(R.id.tabs)
+        val tabs: TabLayout = binding.tabs
         TabLayoutMediator(tabs, viewPager) {tab, position ->
-            tab.text = resources.getString(TAB_TITLES[position])
+            tab.text = resources.getString(DetailCourseActivity.TAB_TITLES[position])
         }.attach()
     }
 }
