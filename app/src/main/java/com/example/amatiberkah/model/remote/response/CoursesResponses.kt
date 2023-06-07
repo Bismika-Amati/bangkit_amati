@@ -1,7 +1,7 @@
 package com.example.amatiberkah.model.remote.response
 
 data class CoursesResponses(
-    val error: String,
+    val error: Int,
     val message: String,
     val listCourse: List<ListCourseResponse>
 )

@@ -8,10 +8,8 @@ import retrofit2.http.Query
 interface ApiServiceMasterData {
 
     @GET("courses")
-    fun getAllCourses(
-        @Query("page") page: Int?,
-        @Query("size") size: Int?,
-        @Header("Authorization") authorization: String
+    suspend fun getAllCourses(
+        @Header("accessToken") accessToken: String
     ) : CoursesResponses
 
 

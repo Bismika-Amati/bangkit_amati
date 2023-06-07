@@ -24,9 +24,9 @@ class CourseAdapter(private val listCourse: List<ListCourseResponse>) : Recycler
         val course = listCourse[position]
         viewHolder.binding.moduleTitle.text = course.title
         Glide.with(viewHolder.itemView.context).load(course.photoUrl).into(viewHolder.binding.moduleImg)
-//        viewHolder.itemView.setOnClickListener {
-//            onItemClickCallback.onItemClicked(user)
-//        }
+        viewHolder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClicked(course)
+        }
     }
 
     override fun getItemCount() = listCourse.size
@@ -40,6 +40,6 @@ class CourseAdapter(private val listCourse: List<ListCourseResponse>) : Recycler
     }
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: CoursesResponses)
+        fun onItemClicked(data: ListCourseResponse)
     }
 }

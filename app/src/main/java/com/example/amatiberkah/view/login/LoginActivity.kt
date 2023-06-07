@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.amatiberkah.databinding.ActivityLoginBinding
 import com.example.amatiberkah.view.AdminActivity
 import com.example.amatiberkah.view.DetailCourseActivity
+import com.example.amatiberkah.view.explore.ExploreActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -74,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
     private fun navigateActivity(role: String) {
         when(role) {
             "student" -> {
-                val intent = Intent(this@LoginActivity, DetailCourseActivity::class.java)
+                val intent = Intent(this@LoginActivity, ExploreActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }

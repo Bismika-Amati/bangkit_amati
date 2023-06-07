@@ -12,12 +12,10 @@ class CourseRepository @Inject constructor(
 ){
 
     suspend fun getAllModule(
-        page: Int?,
-        size: Int?,
-        authorization: String
+        accessToken: String
     ): Flow<Result<CoursesResponses>> {
         return flow {
-            val response = apiServiceMasterData.getAllCourses(page, size, authorization)
+            val response = apiServiceMasterData.getAllCourses(accessToken)
             emit(Result.success(response))
         }.catch {throwable ->
             emit(Result.failure(throwable))

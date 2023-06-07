@@ -14,14 +14,12 @@ class ExploreViewModel @Inject constructor(
     private val auth : AuthRepository
 ): ViewModel() {
     suspend fun getAllModule(
-        page: Int?,
-        size: Int?,
-        authorization: String
+        accessToken: String
     ): Flow<Result<CoursesResponses>> {
-        return course.getAllModule(page, size, authorization)
+        return course.getAllModule(accessToken)
     }
 
-    suspend fun getToken(): Flow<String?> {
+    fun getToken(): Flow<String?> {
         return auth.getToken()
     }
 }
