@@ -8,7 +8,6 @@ import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.amatiberkah.databinding.ActivityLoginBinding
 import com.example.amatiberkah.view.AdminActivity
-import com.example.amatiberkah.view.DetailCourseActivity
 import com.example.amatiberkah.view.explore.ExploreActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

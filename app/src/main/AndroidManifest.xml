@@ -16,13 +16,19 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="33">
         <activity
+            android:name=".view.detailsub.DetailSubModuleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.submodule.SubModuleActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.explore.ExploreActivity"
             android:exported="false" />
         <activity
             android:name=".view.AdminActivity"
             android:exported="false" />
         <activity
-            android:name=".view.DetailCourseActivity"
+            android:name=".view.detail.DetailCourseActivity"
             android:exported="false" />
         <activity
             android:name=".view.register.RegisterActivity"

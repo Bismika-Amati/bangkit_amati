@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="15dp"
+    android:layout_marginVertical="8dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_course"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:srcCompat="@drawable/image_10"
+            android:contentDescription="@string/course_image" />
+
+        <TextView
+            android:id="@+id/tv_study_prepare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/study_prepare"
+            android:textColor="#7C8444"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@+id/iv_course"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_course_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/course_time"
+            card_view:layout_constraintStart_toStartOf="@+id/tv_study_prepare"
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_study_prepare" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,7 +1,6 @@
 package com.example.amatiberkah.model.remote.api
 
-import com.example.amatiberkah.model.remote.response.CoursesResponse
-import com.example.amatiberkah.model.remote.response.VillageResponses
+import com.example.amatiberkah.model.remote.response.*
 import com.example.amatiberkah.model.remote.response.VillageResponsesDetail
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -26,4 +25,14 @@ interface ApiServiceMasterData {
         @Header("accessToken") accessToken: String
     ) : VillageResponsesDetail
 
+    @GET("courses/{id}")
+    suspend fun getDetailCourse(
+        @Path("id") id: String,
+        @Header("accessToken") accessToken: String
+    ) : DetailCourseResponse
+
+//    @GET
+//    suspend fun getListSubModule(
+//        @Header("accessToken") accessToken: String
+//    ) :
 }
