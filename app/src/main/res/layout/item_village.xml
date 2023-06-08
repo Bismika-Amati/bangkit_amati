@@ -17,15 +17,40 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_profile_explorepage"
         android:padding="8dp" >
+
+        <ImageView
+            android:id="@+id/village_img"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:src="@tools:sample/avatars"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"/>
+
         <TextView
             android:id="@+id/village_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@id/village_img"
             android:textSize="13sp"
             android:layout_marginTop="8dp"
             tools:text="Waste Management Course"/>
 
+        <TextView
+            android:id="@+id/village_region"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@id/village_title"
+            android:textSize="8sp"
+            android:layout_marginTop="8dp"
+            tools:text="Waste Management Course"/>
+
         <com.example.amatiberkah.view.custom.LetStartButton
+            android:id="@+id/button_village"
             android:layout_width="119dp"
             android:layout_height="35dp"
             android:layout_marginTop="24dp"

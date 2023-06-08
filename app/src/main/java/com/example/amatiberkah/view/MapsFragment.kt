@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.amatiberkah.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -18,6 +19,35 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class MapsFragment : Fragment() {
+
+    companion object {
+        private const val ARG_LOCATION = "location"
+
+        fun newInstance(location: String): MapsFragment {
+            val fragment = MapsFragment()
+            val args = Bundle()
+            args.putString(ARG_LOCATION, location)
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+    private var location: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            location = it.getString(ARG_LOCATION)
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val descriptionTextView: TextView = view.findViewById(R.id.location)
+        descriptionTextView.text = location
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

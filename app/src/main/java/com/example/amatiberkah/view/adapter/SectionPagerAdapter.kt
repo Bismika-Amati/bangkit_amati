@@ -7,12 +7,22 @@ import com.example.amatiberkah.view.MapsFragment
 import com.example.amatiberkah.view.ProblemsFragment
 
 class SectionPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
+    private var description: String? = null
+    private var problems: String? = null
+    private var location: String? = null
+
+    fun setData(description: String, problems: String, location: String) {
+        this.description = description
+        this.problems = problems
+        this.location = location
+    }
+
     override fun createFragment(position: Int): Fragment {
         var fragment : Fragment? = null;
         fragment = when (position) {
-            0 -> DescriptionFragment()
-            1 -> ProblemsFragment()
-            else -> MapsFragment()
+            0 -> DescriptionFragment.newInstance(description ?: "apa aja")
+            1 -> ProblemsFragment.newInstance(problems ?: "apa aja")
+            else -> MapsFragment.newInstance(location ?: "apa aja")
         }
         return fragment
     }

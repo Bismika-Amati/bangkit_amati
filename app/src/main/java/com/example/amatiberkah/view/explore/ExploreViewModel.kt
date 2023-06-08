@@ -20,8 +20,7 @@ class ExploreViewModel @Inject constructor(
     private val village : VillageRepository
 ): ViewModel() {
 
-    private val _userLiveData = MutableLiveData<LoginResponseDataUser>()
-    val userLiveData: LiveData<LoginResponseDataUser> = _userLiveData
+
 
 
     suspend fun getAllModule(

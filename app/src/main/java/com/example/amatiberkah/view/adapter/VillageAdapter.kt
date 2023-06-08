@@ -14,7 +14,8 @@ class VillageAdapter(private val listVillage: List<ListVillageResponse>, private
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val tvTitle: TextView = view.findViewById(R.id.village_title)
-
+        val image: ImageView = view.findViewById(R.id.village_img)
+        val tvRegion: TextView = view.findViewById(R.id.village_region)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -26,7 +27,10 @@ class VillageAdapter(private val listVillage: List<ListVillageResponse>, private
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val village = listVillage[position]
         holder.tvTitle.text = village.name
-
+        Glide.with(holder.itemView.context)
+            .load(village.villagePicture[0].photo)
+            .into(holder.image)
+        holder.tvRegion.text = village.address
 
 
         holder.itemView.setOnClickListener {onItemClick(village)}

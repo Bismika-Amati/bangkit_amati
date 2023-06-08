@@ -1,9 +1,15 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ExploreVillageDescriptionActivity">
+    tools:context=".view.explore.ExploreActivity">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.exploreVillageDetail.ExploreVillageDetailActivity">
 
 
     <ImageView
@@ -58,21 +64,6 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="382dp" />
 
-        <TextView
-            android:id="@+id/resource"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
-            android:paddingStart="24dp"
-            android:paddingEnd="58dp"
-            android:text="Sumber Daya : Minyak"
-            android:textColor="#A19797"
-            android:gravity="start"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="382dp" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
@@ -91,15 +82,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white" />
 
-        <Button
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="30dp"
-            android:layout_width="182dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:backgroundTint="#FCCD5A"
-            android:gravity="center"
-            android:text="Set Plan" />
+
 
         <!-- Konten layout overlay di sini -->
 
@@ -108,3 +91,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
