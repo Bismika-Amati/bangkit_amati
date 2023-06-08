@@ -52,10 +52,7 @@ class ExploreActivity : AppCompatActivity() {
 
     }
 
-    private fun setListCourse(listCourse: List<ListCourseResponse>){
-        val adapter = CourseAdapter(listCourse ?: emptyList())
-        binding.courseReview.adapter = adapter
-    }
+
 
     private fun setListVillage(listVillage: List<ListVillageResponse>){
         val adapter = VillageAdapter(listVillage) {
@@ -74,7 +71,7 @@ class ExploreActivity : AppCompatActivity() {
                     ).collectLatest { result ->
                         if (result.isSuccess) {
                             val courseResponse = result.getOrThrow()
-                            setListCourse(courseResponse.listCourse)
+                            setListCourse(courseResponse.data)
                         } else {
                             Log.d("ERROR LIST","Home Failed: ${result.exceptionOrNull()?.message}")
                             showToast("Home Failed: ${result.exceptionOrNull()?.message}")
@@ -94,6 +91,12 @@ class ExploreActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun setListCourse(listCourse: List<DataItem>?){
+        val adapter = CourseAdapter((listCourse ?: emptyList()))
+        Log.d("CourseAdapter", "ListCourse: $listCourse")
+        binding.courseReview.adapter = adapter
     }
 
 

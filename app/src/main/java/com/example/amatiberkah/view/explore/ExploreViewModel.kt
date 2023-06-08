@@ -1,7 +1,7 @@
 package com.example.amatiberkah.view.explore
 
 import androidx.lifecycle.ViewModel
-import com.example.amatiberkah.model.remote.response.CoursesResponses
+import com.example.amatiberkah.model.remote.response.CoursesResponse
 import com.example.amatiberkah.model.remote.response.VillageResponses
 import com.example.amatiberkah.model.repository.AuthRepository
 import com.example.amatiberkah.model.repository.CourseRepository
@@ -18,7 +18,7 @@ class ExploreViewModel @Inject constructor(
 ): ViewModel() {
     suspend fun getAllModule(
         accessToken: String
-    ): Flow<Result<CoursesResponses>> {
+    ): Flow<Result<CoursesResponse>> {
         return course.getAllModule(accessToken)
     }
 

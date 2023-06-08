@@ -1,7 +1,7 @@
 package com.example.amatiberkah.model.repository
 
 import com.example.amatiberkah.model.remote.api.ApiServiceMasterData
-import com.example.amatiberkah.model.remote.response.CoursesResponses
+import com.example.amatiberkah.model.remote.response.CoursesResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
@@ -13,7 +13,7 @@ class CourseRepository @Inject constructor(
 
     suspend fun getAllModule(
         accessToken: String
-    ): Flow<Result<CoursesResponses>> {
+    ): Flow<Result<CoursesResponse>> {
         return flow {
             val response = apiServiceMasterData.getAllCourses(accessToken)
             emit(Result.success(response))

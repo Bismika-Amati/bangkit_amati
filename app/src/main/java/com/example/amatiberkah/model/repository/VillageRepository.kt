@@ -1,7 +1,6 @@
 package com.example.amatiberkah.model.repository
 
 import com.example.amatiberkah.model.remote.api.ApiServiceMasterData
-import com.example.amatiberkah.model.remote.response.CoursesResponses
 import com.example.amatiberkah.model.remote.response.VillageResponses
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
