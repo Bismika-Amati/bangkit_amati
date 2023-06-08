@@ -2,6 +2,9 @@ package com.example.amatiberkah.model.repository
 
 import com.example.amatiberkah.model.remote.api.ApiServiceMasterData
 import com.example.amatiberkah.model.remote.response.CoursesResponse
+import com.example.amatiberkah.model.remote.response.DataItem
+import com.example.amatiberkah.model.remote.response.DetailCourseResponse
+import com.example.amatiberkah.model.remote.response.SubModuleResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
@@ -22,5 +25,27 @@ class CourseRepository @Inject constructor(
         }
     }
 
+    suspend fun getDetailModule(
+        id: String,
+        accessToken: String
+    ): Flow<Result<DetailCourseResponse>> {
+        return flow {
+            val response = apiServiceMasterData.getDetailCourse(id, accessToken)
+            emit(Result.success(response))
+        }.catch {throwable ->
+            emit(Result.failure(throwable))
+        }
+    }
 
+    suspend fun getListSubModule(
+        id: String,
+        accessToken: String
+    ): Flow<Result<DetailCourseResponse>> {
+        return flow {
+            val response = apiServiceMasterData.getDetailCourse(id, accessToken)
+            emit(Result.success(response))
+        }.catch { throwable ->
+            emit(Result.failure(throwable))
+        }
+    }
 }
