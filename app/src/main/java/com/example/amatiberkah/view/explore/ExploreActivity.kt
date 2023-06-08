@@ -7,14 +7,13 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.amatiberkah.R
 import com.example.amatiberkah.databinding.ActivityExploreBinding
-import com.example.amatiberkah.model.remote.response.CoursesResponses
-import com.example.amatiberkah.model.remote.response.ListCourseResponse
-import com.example.amatiberkah.model.remote.response.LoginResponseDataUser
-import com.example.amatiberkah.model.remote.response.UserResponse
+import com.example.amatiberkah.model.remote.response.*
 import com.example.amatiberkah.view.adapter.CourseAdapter
+import com.example.amatiberkah.view.adapter.VillageAdapter
 import com.example.amatiberkah.view.login.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -47,11 +46,22 @@ class ExploreActivity : AppCompatActivity() {
         val itemDecoration = DividerItemDecoration(this, layoutManager.orientation)
         binding.courseReview.addItemDecoration(itemDecoration)
 
+        val spanCount = 2
+        val layoutManager2 = GridLayoutManager(this, spanCount, LinearLayoutManager.HORIZONTAL, false)
+        binding.villageReview.layoutManager = layoutManager2
+
     }
 
     private fun setListCourse(listCourse: List<ListCourseResponse>){
         val adapter = CourseAdapter(listCourse ?: emptyList())
         binding.courseReview.adapter = adapter
+    }
+
+    private fun setListVillage(listVillage: List<ListVillageResponse>){
+        val adapter = VillageAdapter(listVillage) {
+
+        }
+        binding.villageReview.adapter = adapter
     }
 
     private fun setupMain() {
@@ -65,6 +75,17 @@ class ExploreActivity : AppCompatActivity() {
                         if (result.isSuccess) {
                             val courseResponse = result.getOrThrow()
                             setListCourse(courseResponse.listCourse)
+                        } else {
+                            Log.d("ERROR LIST","Home Failed: ${result.exceptionOrNull()?.message}")
+                            showToast("Home Failed: ${result.exceptionOrNull()?.message}")
+                        }
+                    }
+                    viewModel.getVillages(
+                        token
+                    ).collectLatest { result ->
+                        if(result.isSuccess) {
+                            val villageResponse = result.getOrThrow()
+                            setListVillage(villageResponse.data)
                         } else {
                             Log.d("ERROR LIST","Home Failed: ${result.exceptionOrNull()?.message}")
                             showToast("Home Failed: ${result.exceptionOrNull()?.message}")
