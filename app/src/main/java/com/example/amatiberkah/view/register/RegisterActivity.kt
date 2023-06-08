@@ -29,25 +29,25 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun setUpViews() {
         binding.apply {
-            val registerBtn = buttonRegister
+            val registerBtn = btnSignup
 
             registerBtn.setOnClickListener {
-                val fullName = editTextName.text.toString()
-                val email = editTextEmail.text.toString()
-                val password = editTextPassword.text.toString()
-                val phoneNumber = editTextPhoneNumber.text.toString()
+                val fullName = edName.text.toString()
+                val email = edEmail.text.toString()
+                val password = edPassword.text.toString()
+                val phoneNumber = edPhone.text.toString()
                 when {
                     fullName.isEmpty() -> {
-                        editTextName.error = "Name is Required"
+                        edName.error = "Name is Required"
                     }
                     email.isEmpty() -> {
-                        editTextEmail.error = "Email is Required"
+                        edEmail.error = "Email is Required"
                     }
                     password.isEmpty() -> {
-                        editTextPassword.error = "Password is Required"
+                        edPassword.error = "Password is Required"
                     }
                     phoneNumber.isEmpty() -> {
-                        editTextPhoneNumber.error = "Phone Number is Required"
+                        edPhone.error = "Phone Number is Required"
                     }
                     else -> {
                         registerByRole(fullName, email, password, ROLE, phoneNumber)

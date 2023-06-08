@@ -1,9 +1,5 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <string name="app_name">AMATIBerkah</string>
     <string name="letstartbtn_available">Let\'s Start</string>
-    <string name="name">Full Name</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
     <string name="phone_number">Phone Number</string>
     <string name="register">Register</string>
     <string name="labuan_bajo">Labuan Bajo</string>
@@ -17,7 +13,6 @@
     <string name="content_tab_problems">Problems Content</string>
     <string name="content_tab_map">Location Content</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
     <string name="lorem_for_example">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
@@ -25,4 +20,53 @@
     <string name="tab_text_1_course">Description</string>
     <string name="tab_text_2_course">Skills</string>
     <string name="tab_text_3_course">Review</string>
+
+    <string name="app_name">Amati</string>
+    <string name="powered_by">Powered by</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profile_fragment">This is profile fragment</string>
+    <string name="btn_changePassword">Ganti Password</string>
+    <string name="name">Nama</string>
+    <string name="username">Username</string>
+    <string name="role">Role</string>
+    <string name="avatar">Avatar</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="title_explore">Explore</string>
+    <string name="title_message">Message</string>
+    <string name="title_profile">Profile</string>
+    <string name="amati_logo">Amati Logo</string>
+    <string name="background_container">Background Container</string>
+    <string name="google_login">Google Login</string>
+    <string name="recycle_logo">Recycle Logo</string>
+    <string name="login">Log In</string>
+    <string name="register_here">Register here</string>
+    <string name="no_account">Dont have account?</string>
+    <string name="or">or</string>
+    <string name="password_logo">Password Logo</string>
+    <string name="email_logo">Email Logo</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="phone">Phone</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="have_account">Already have account?</string>
+    <string name="username_logo">Username Logo</string>
+    <string name="phone_logo">Phone Logo</string>
+    <string name="login_activity">LOGIN ACTIVITY</string>
+    <string name="register_activity">Register Activity</string>
+    <string name="login_btn">login</string>
+    <string name="google_account">Google Account</string>
+    <string name="google_logo">Google Logo</string>
+    <string name="course_image">Course Image</string>
+    <string name="study_prepare">Persiapan Belajar</string>
+    <string name="course_time">3 Courses x 24 hours</string>
+    <string name="course_title">Waste Management Course</string>
+    <string name ="paragraph_example">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="next_button">Next Button</string>
+    <string name="back_button">Back Button</string>
+    <string name="village_recommendation">Rekomendasi Desa</string>
+
 </resources>

@@ -1,7 +1,10 @@
 package com.example.amatiberkah.view.explore
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.amatiberkah.model.remote.response.CoursesResponse
+import com.example.amatiberkah.model.remote.response.LoginResponseDataUser
 import com.example.amatiberkah.model.remote.response.VillageResponses
 import com.example.amatiberkah.model.repository.AuthRepository
 import com.example.amatiberkah.model.repository.CourseRepository
@@ -16,6 +19,11 @@ class ExploreViewModel @Inject constructor(
     private val auth : AuthRepository,
     private val village : VillageRepository
 ): ViewModel() {
+
+    private val _userLiveData = MutableLiveData<LoginResponseDataUser>()
+    val userLiveData: LiveData<LoginResponseDataUser> = _userLiveData
+
+
     suspend fun getAllModule(
         accessToken: String
     ): Flow<Result<CoursesResponse>> {
@@ -30,5 +38,13 @@ class ExploreViewModel @Inject constructor(
 
     fun getToken(): Flow<String?> {
         return auth.getToken()
+    }
+
+    fun getUserDataName(): Flow<String?> {
+        return auth.getUserDataName()
+    }
+
+    fun getUserDataEmail(): Flow<String?> {
+        return auth.getUserDataEmail()
     }
 }

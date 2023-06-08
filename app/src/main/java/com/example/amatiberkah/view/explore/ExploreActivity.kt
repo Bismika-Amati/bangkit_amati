@@ -37,8 +37,6 @@ class ExploreActivity : AppCompatActivity() {
 
         setupMain()
 
-
-
         supportActionBar?.hide()
 
         val layoutManager = LinearLayoutManager(this)
@@ -77,6 +75,15 @@ class ExploreActivity : AppCompatActivity() {
                             showToast("Home Failed: ${result.exceptionOrNull()?.message}")
                         }
                     }
+
+                    viewModel.getUserDataEmail().collect {email ->
+                        binding.statusBox.text = email
+                    }
+
+                    viewModel.getUserDataName().collect {name ->
+                        binding.usernameBox.text = name
+                    }
+
                     viewModel.getVillages(
                         token
                     ).collectLatest { result ->

@@ -30,16 +30,16 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setupViews() {
         binding.apply {
-            val loginBtn = buttonLogin
+            val loginBtn = btnLogin
             loginBtn.setOnClickListener {
-                val email = binding.edLoginEmail.text.toString()
-                val password = binding.edLoginPassword.text.toString()
+                val email = binding.edtEmail.text.toString()
+                val password = binding.edPassword.text.toString()
                 when {
                     email.isEmpty() -> {
-                        edLoginEmail.error = "Email is Required"
+                        edtEmail.error = "Email is Required"
                     }
                     password.isEmpty() -> {
-                        edLoginPassword.error = "Password is Required"
+                        edPassword.error = "Password is Required"
                     }
                     else -> {
                         login(email, password)
