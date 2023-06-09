@@ -15,6 +15,8 @@
         android:theme="@style/Theme.AMATIBerkah"
         android:usesCleartextTraffic="true"
         tools:targetApi="33">
+        <activity android:name=".view.chooseRole.ChooseRoleActivity"
+            android:exported="false" />
         <activity
             android:name=".view.explore.ListCourseExploreActivity"
             android:exported="false" />

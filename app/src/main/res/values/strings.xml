@@ -68,5 +68,7 @@
     <string name="next_button">Next Button</string>
     <string name="back_button">Back Button</string>
     <string name="village_recommendation">Rekomendasi Desa</string>
+    <string name="student">Student</string>
+    <string name="pic_desa">Pic Desa</string>
 
 </resources>
