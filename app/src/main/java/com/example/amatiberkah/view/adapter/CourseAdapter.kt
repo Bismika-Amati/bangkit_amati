@@ -25,7 +25,7 @@ class CourseAdapter(private val listCourse: List<DataItem>) : RecyclerView.Adapt
         val course = listCourse[position]
         viewHolder.binding.moduleTitle.text = course.title
         Glide.with(viewHolder.itemView.context).load(course.photo).into(viewHolder.binding.moduleImg)
-        viewHolder.itemView.setOnClickListener {
+        viewHolder.itemView.setOnClickListener{
             onItemClickCallback.onItemClicked(course)
         }
     }
