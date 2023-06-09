@@ -82,6 +82,7 @@ class DetailCourseActivity : AppCompatActivity() {
         binding.coursePrice.text = courseDetail?.amount.toString()
         binding.startButton.setOnClickListener {
             val intent = Intent(this@DetailCourseActivity, SubModuleActivity::class.java)
+            intent.putExtra(SubModuleActivity.EXTRA_COURSE, courseDetail?.id)
             startActivity(intent)
         }
     }

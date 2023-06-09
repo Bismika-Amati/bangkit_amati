@@ -43,8 +43,7 @@ class SubModuleActivity : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         binding.rvCourse.layoutManager = layoutManager
-        val itemDecoration = DividerItemDecoration(this, layoutManager.orientation)
-        binding.rvCourse.addItemDecoration(itemDecoration)
+
     }
 
     private fun setupSubModule(){
@@ -53,7 +52,7 @@ class SubModuleActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             subModulViewModel.getToken().collect { tokenUser ->
-                if (tokenUser !== null && courseId !== null) {
+                if (tokenUser != null && courseId != null) {
                     val accessToken = "Bearer $tokenUser"
                     subModulViewModel.getListSubModule(courseId,accessToken).collect { result ->
                         if (result.isSuccess) {
@@ -71,7 +70,7 @@ class SubModuleActivity : AppCompatActivity() {
     }
 
     private fun setListSubModule(listSubModule: List<SubModuleItem>?){
-        val adapter = SubModuleAdapter((listSubModule ?: emptyList()))
+        val adapter = SubModuleAdapter(listSubModule ?: emptyList())
         Log.d("SubModuleAdapter", "listSubModule: $listSubModule")
         binding.rvCourse.adapter = adapter
     }
