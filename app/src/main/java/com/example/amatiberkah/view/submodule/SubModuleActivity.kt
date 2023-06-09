@@ -75,7 +75,7 @@ class SubModuleActivity : AppCompatActivity() {
         adapter.setOnItemClickCallback(object : SubModuleAdapter.OnItemClickCallback {
             override fun onItemClicked(data: SubModuleItem) {
                 val intentDetail = Intent(this@SubModuleActivity, DetailSubModuleActivity::class.java)
-                intentDetail.putExtra(DetailSubModuleActivity.EXTRA_COURSE, data.courseId)
+                intentDetail.putExtra(DetailSubModuleActivity.EXTRA_COURSE, data.id)
                 startActivity(intentDetail)
             }
         })

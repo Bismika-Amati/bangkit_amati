@@ -9,7 +9,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import com.example.amatiberkah.model.remote.response.LoginResponseDataUser
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.withContext
+
 
 
 class UserPreferences private constructor(private val dataStore: DataStore<Preferences>) {
@@ -19,9 +19,19 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
         }
     }
 
+    fun getUserId(): Flow<String?>
+    {
+        return dataStore.data.map { preferences ->
+            preferences[USER_ID]
+        }
+    }
 
     suspend fun saveUserToken(token: String) {
         dataStore.edit { it[TOKEN_KEY] = token }
+    }
+
+    suspend fun saveUserId(id: String) {
+        dataStore.edit { it[USER_ID] = id }
     }
 
     suspend fun saveUserData(user: LoginResponseDataUser) {
@@ -53,6 +63,7 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
         private val TOKEN_KEY = stringPreferencesKey("token")
         private val NAME = stringPreferencesKey("name")
         private val EMAIL = stringPreferencesKey("email")
+        private val USER_ID = stringPreferencesKey("user_id")
 
         fun getInstance(dataStore: DataStore<Preferences>): UserPreferences {
             return INSTANCE ?: synchronized(this) {

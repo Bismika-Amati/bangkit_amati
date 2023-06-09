@@ -65,7 +65,7 @@ data class SubModuleData(
 	val course: Course? = null,
 
 	@field:SerializedName("articleSubModule")
-	val articleSubModule: ArticleSubModuleItem,
+	val articleSubModule: List<ArticleSubModuleItem>,
 
 	@field:SerializedName("id")
 	val id: String? = null,

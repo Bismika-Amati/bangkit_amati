@@ -9,12 +9,32 @@
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:id="@+id/problems"
+        android:id="@+id/problems_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/content_tab_problems"
         android:textSize="16dp"
         android:layout_marginHorizontal="36dp"
         android:textColor="#A19797" />
+
+    <TextView
+        android:id="@+id/problems_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Problems content 2"
+        android:layout_marginTop="32dp"
+        android:textSize="16dp"
+        android:layout_marginHorizontal="36dp"
+        android:textColor="#A19797" />
+
+    <TextView
+        android:id="@+id/problems_3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="36dp"
+        android:text="Problems content 3"
+        android:layout_marginTop="64dp"
+        android:textColor="#A19797"
+        android:textSize="16dp" />
 
 </FrameLayout>

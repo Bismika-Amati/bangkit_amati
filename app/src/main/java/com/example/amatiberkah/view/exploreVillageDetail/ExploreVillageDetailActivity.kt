@@ -54,7 +54,9 @@ class ExploreVillageDetailActivity : AppCompatActivity() {
                         if (result.isSuccess) {
                             val villageDetail = result.getOrThrow()
                             val description = villageDetail.data.description
-                            val problems = villageDetail.data.problemStatement[0].description
+                            val problems1 = villageDetail.data.problemStatement[0].topic
+                            val problems2 = villageDetail.data.problemStatement[1].topic
+                            val problems3 = villageDetail.data.problemStatement[2].topic
                             val location = villageDetail.data.address
                             val sectionPagerAdapter = SectionPagerAdapter(this@ExploreVillageDetailActivity)
                             val viewPager: ViewPager2 = findViewById(R.id.view_pager)
@@ -63,7 +65,7 @@ class ExploreVillageDetailActivity : AppCompatActivity() {
                             TabLayoutMediator(tabs, viewPager) {tab, position ->
                                 tab.text = resources.getString(TAB_TITLES[position])
                             }.attach()
-                            sectionPagerAdapter.setData(description, problems, location)
+                            sectionPagerAdapter.setData(description, problems1, problems2, problems3, location)
                             setVillageDetail(villageDetail.data)
 
                         } else {

@@ -3,20 +3,19 @@ package com.example.amatiberkah.model.repository
 import com.example.amatiberkah.model.local.UserPreferences
 import com.example.amatiberkah.model.remote.api.ApiServiceAuth
 import com.example.amatiberkah.model.remote.response.LoginResponse
+import com.example.amatiberkah.model.remote.response.LoginResponseDataUser
 import com.example.amatiberkah.model.remote.response.RegisterResponse
-
 import com.example.amatiberkah.utils.handleError
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.withContext
-
 import javax.inject.Inject
 
 class AuthRepository @Inject constructor(
     private val apiServiceAuth: ApiServiceAuth,
-    private val userPreferences: UserPreferences,
+    private val userPreferences: UserPreferences
 ) {
+
 
     suspend fun registerByRole(
         fullName: String,
@@ -93,8 +92,9 @@ class AuthRepository @Inject constructor(
         return userPreferences.getUserDataName()
     }
 
-    suspend fun saveToken(token: String) {
-        return userPreferences.saveUserToken(token)
+    fun getUserId(): Flow<String?> {
+        return userPreferences.getUserId()
     }
+
 
 }
