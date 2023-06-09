@@ -65,6 +65,7 @@ class AuthRepository @Inject constructor(
                 response.data.accessToken
             )
             userPreferences.saveUserData(response.data.user)
+            userPreferences.saveUserId(response.data.user.id)
             emit(Result.success(response))
         }.catch {
             emit(Result.failure(Throwable(handleError(it))))
@@ -81,6 +82,10 @@ class AuthRepository @Inject constructor(
 
     fun getUserDataName(): Flow<String?> {
         return userPreferences.getUserDataName()
+    }
+
+    fun getUserId(): Flow<String?> {
+        return userPreferences.getUserId()
     }
 
 

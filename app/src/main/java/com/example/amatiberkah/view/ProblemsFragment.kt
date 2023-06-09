@@ -21,31 +21,45 @@ private const val ARG_PARAM2 = "param2"
 class ProblemsFragment : Fragment() {
 
     companion object {
-        private const val ARG_PROBLEMS = "problems"
+        private const val ARG_PROBLEMS1 = "problems1"
+        private const val ARG_PROBLEMS2 = "problems2"
+        private const val ARG_PROBLEMS3 = "problems3"
 
-        fun newInstance(problems: String): ProblemsFragment {
+        fun newInstance(problems1: String, problems2: String, problems3: String): ProblemsFragment {
             val fragment = ProblemsFragment()
             val args = Bundle()
-            args.putString(ARG_PROBLEMS, problems)
+            args.putString(ARG_PROBLEMS1, problems1)
+            args.putString(ARG_PROBLEMS2, problems2)
+            args.putString(ARG_PROBLEMS3, problems3)
             fragment.arguments = args
             return fragment
         }
     }
 
-    private var problems: String? = null
+    private var problems1: String? = null
+    private var problems2: String? = null
+    private var problems3: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            problems = it.getString(ARG_PROBLEMS)
+            problems1 = it.getString(ARG_PROBLEMS1)
+            problems2 = it.getString(ARG_PROBLEMS2)
+            problems3 = it.getString(ARG_PROBLEMS3)
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val descriptionTextView: TextView = view.findViewById(R.id.problems)
-        descriptionTextView.text = problems
+        val descriptionTextView1: TextView = view.findViewById(R.id.problems_1)
+        descriptionTextView1.text = problems1
+
+        val descriptionTextView2: TextView = view.findViewById(R.id.problems_2)
+        descriptionTextView2.text = problems2
+
+        val descriptionTextView3: TextView = view.findViewById(R.id.problems_3)
+        descriptionTextView3.text = problems3
     }
 
 

@@ -41,20 +41,45 @@ class DetailSubModuleActivity : AppCompatActivity() {
 
         val subModulId = intent.getStringExtra(SubModuleActivity.EXTRA_COURSE)
 
+
+
         lifecycleScope.launch {
             detailSubModuleViewModel.getToken().collect { tokenUser ->
-                if (tokenUser !== null && subModulId !== null) {
+                if (tokenUser != null && subModulId != null) {
                     val accessToken = "Bearer $tokenUser"
                     detailSubModuleViewModel.getDetailSubModule(subModulId, accessToken).collect { result ->
                         if (result.isSuccess) {
                             val courseDetail = result.getOrThrow()
-                            setCourseDetail(courseDetail.data.articleSubModule)
+                            setCourseDetail(courseDetail.data.articleSubModule[0])
                         } else {
                             Log.d("Error Detail", "detail view : $result")
-                            showToast("Detail Failed: ${result.exceptionOrNull()?.message}")
+                            showToast("Detail Failed: $subModulId")
                         }
                     }
+                    detailSubModuleViewModel.getUserId().collect{ userId ->
+                        binding.buttonDone.setOnClickListener {
+                            doneModules(userId ?: "Opo ae wes", subModulId, accessToken)
+                        }
+                    }
+
                 }
+            }
+        }
+    }
+
+    private fun doneModules(userId: String, subModuleId: String, accessToken: String) {
+        lifecycleScope.launch {
+            try {
+                detailSubModuleViewModel.doneModules(userId, subModuleId, accessToken).collect {result ->
+                    if(result.isSuccess) {
+                    showToast("BERHASIL BRUHHH")
+                    } else {
+                        Log.d("Error Detail", "detail view : $result")
+                        showToast("Detail Failed: $accessToken")
+                    }
+                }
+            } catch (e: Exception) {
+                showToast("Login Failed: ${e.message}")
             }
         }
     }
