@@ -25,7 +25,7 @@
             android:name=".view.submodule.SubModuleActivity"
             android:exported="false" />
         <activity
-            android:name=".view.explore.ExploreActivity"
+            android:name=".view.login.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".view.AdminActivity"
@@ -37,7 +37,7 @@
             android:name=".view.register.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".view.login.LoginActivity"
+            android:name=".view.explore.ExploreActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

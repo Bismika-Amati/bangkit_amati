@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_gravity="center"
     android:layout_height="match_parent"
     android:padding="16dp">
 
@@ -13,20 +14,20 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Student"
-
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.781"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="104dp" />
+        tools:layout_editor_absoluteY="190dp" />
 
     <Button
         android:id="@+id/picDesaRole"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Pic Desa"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="185dp" />
+        app:layout_constraintEnd_toEndOf="@+id/studentRole"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/studentRole"
+        tools:layout_editor_absoluteY="305dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

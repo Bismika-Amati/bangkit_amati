@@ -8,7 +8,9 @@ import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.amatiberkah.databinding.ActivityLoginBinding
 import com.example.amatiberkah.view.AdminActivity
+import com.example.amatiberkah.view.chooseRole.ChooseRoleActivity
 import com.example.amatiberkah.view.explore.ExploreActivity
+import com.example.amatiberkah.view.register.RegisterActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -30,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
     private fun setupViews() {
         binding.apply {
             val loginBtn = btnLogin
+            val registerBtn = btnRegister
             loginBtn.setOnClickListener {
                 val email = binding.edtEmail.text.toString()
                 val password = binding.edPassword.text.toString()
@@ -44,6 +47,11 @@ class LoginActivity : AppCompatActivity() {
                         login(email, password)
                     }
                 }
+            }
+            registerBtn.setOnClickListener {
+                val intent = Intent(this@LoginActivity, ChooseRoleActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
             }
         }
     }

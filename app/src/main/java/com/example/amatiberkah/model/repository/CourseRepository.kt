@@ -4,6 +4,8 @@ import com.example.amatiberkah.model.remote.api.ApiServiceMasterData
 import com.example.amatiberkah.model.remote.response.CoursesResponse
 import com.example.amatiberkah.model.remote.response.DetailCourseResponse
 import com.example.amatiberkah.model.remote.response.DetailSubModuleResponse
+import com.example.amatiberkah.model.remote.response.DoneModuleResponse
+import com.example.amatiberkah.utils.handleError
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow

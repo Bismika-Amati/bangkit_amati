@@ -1,5 +1,6 @@
 package com.example.amatiberkah.view.register
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -8,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.amatiberkah.databinding.ActivityRegisterBinding
 import com.example.amatiberkah.model.remote.response.RegisterDataResponse
 import com.example.amatiberkah.model.remote.response.RegisterResponse
+import com.example.amatiberkah.view.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -25,12 +27,14 @@ class RegisterActivity : AppCompatActivity() {
 
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setUpViews()
     }
 
     private fun setUpViews() {
         binding.apply {
             val registerBtn = btnSignup
-
+            val loginBtn = btnLogin
             registerBtn.setOnClickListener {
                 val fullName = edName.text.toString()
                 val email = edEmail.text.toString()
@@ -53,6 +57,11 @@ class RegisterActivity : AppCompatActivity() {
                         registerByRole(fullName, email, password, ROLE, phoneNumber)
                     }
                 }
+            }
+            loginBtn.setOnClickListener{
+                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
             }
 
         }

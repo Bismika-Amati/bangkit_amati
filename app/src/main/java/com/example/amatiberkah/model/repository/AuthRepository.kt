@@ -64,7 +64,8 @@ class AuthRepository @Inject constructor(
             userPreferences.saveUserToken(
                 response.data.accessToken
             )
-            userPreferences.saveUserData(response.data.user)
+            userPreferences.saveUserName(response.data.user.fullName)
+            userPreferences.saveUserEmail(response.data.user.email)
             emit(Result.success(response))
         }.catch {
             emit(Result.failure(Throwable(handleError(it))))

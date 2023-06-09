@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 
-
 class UserPreferences private constructor(private val dataStore: DataStore<Preferences>) {
     fun getUserToken(): Flow<String?> {
         return dataStore.data.map { preferences ->
@@ -19,8 +18,7 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
         }
     }
 
-    fun getUserId(): Flow<String?>
-    {
+    fun getUserId(): Flow<String?> {
         return dataStore.data.map { preferences ->
             preferences[USER_ID]
         }
@@ -34,11 +32,14 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
         dataStore.edit { it[USER_ID] = id }
     }
 
-    suspend fun saveUserData(user: LoginResponseDataUser) {
-        dataStore.edit { preferences ->
-            preferences[NAME] = user.fullName
-            preferences[EMAIL] = user.email
-        }
+
+
+    suspend fun saveUserName(name: String) {
+        dataStore.edit { it[NAME] = name }
+    }
+
+    suspend fun saveUserEmail(email: String) {
+        dataStore.edit { it[EMAIL] = email }
     }
 
     fun getUserDataEmail(): Flow<String?> {

@@ -17,8 +17,7 @@ class LoginViewModel @Inject constructor(
     private val authRepository: AuthRepository,
 ) : ViewModel() {
 
-    private val _token = MutableLiveData<String>()
-    val token: LiveData<String> = _token
+
 
     suspend fun login(
         email: String,
@@ -27,12 +26,8 @@ class LoginViewModel @Inject constructor(
         return authRepository.login(
             email,
             password,
-        ).also {
-            saveToken(_token.value.toString())
-        }
+        )
     }
 
-    private fun saveToken(key: String) = viewModelScope.launch {
-        authRepository.saveToken(key)
-    }
+
 }

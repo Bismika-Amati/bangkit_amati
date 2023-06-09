@@ -103,8 +103,11 @@ class ExploreActivity : AppCompatActivity() {
                     viewModel.getUserDataName().collect {name ->
                         binding.usernameBox.text = name
                     }
-
-
+                }
+                else {
+                    val intent = Intent(this@ExploreActivity, LoginActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
                 }
             }
         }
