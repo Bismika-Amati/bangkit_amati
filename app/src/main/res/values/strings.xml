@@ -16,6 +16,7 @@
 
 
     <string name="lorem_for_example">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+    <string name="information">Kelestarian alam merupakan isu yang semakin mendesak di era modern ini. Bumi kita mengalami tekanan besar akibat aktivitas manusia yang tidak berkelanjutan, seperti penebangan hutan, polusi, dan perubahan iklim.</string>
 
     <string name="tab_text_1_course">Description</string>
     <string name="tab_text_2_course">Skills</string>
@@ -70,5 +71,10 @@
     <string name="village_recommendation">Rekomendasi Desa</string>
     <string name="student">Student</string>
     <string name="pic_desa">Pic Desa</string>
+    <string name="logout">Logout</string>
+    <string name="your_courses">Your Courses</string>
+    <string name="see_all">See all</string>
+    <string name="villages">Villages</string>
+    <string name="gambar_course">gambar course</string>
 
 </resources>
