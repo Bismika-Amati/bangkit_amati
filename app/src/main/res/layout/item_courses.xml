@@ -37,18 +37,22 @@
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintTop_toBottomOf="@id/module_img"
             android:textSize="13sp"
-            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
             tools:text="Waste Management Course"/>
 
-        <com.example.amatiberkah.view.custom.LetStartButton
-            android:layout_width="119dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
-            android:textSize="11sp"
-            card_view:layout_constraintEnd_toEndOf="parent"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintBottom_toBottomOf="parent" />
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@id/module_title"
+            android:layout_marginTop="18dp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:text="AMATI Indoensia" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

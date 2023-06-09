@@ -14,6 +14,7 @@ import com.example.amatiberkah.databinding.ActivityExploreBinding
 import com.example.amatiberkah.model.remote.response.ArticleSubModuleItem
 import com.example.amatiberkah.model.remote.response.Data
 import com.example.amatiberkah.view.detail.DetailCourseActivity
+import com.example.amatiberkah.view.explore.ExploreActivity
 import com.example.amatiberkah.view.explore.ExploreViewModel
 import com.example.amatiberkah.view.submodule.SubModuleActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -53,7 +54,8 @@ class DetailSubModuleActivity : AppCompatActivity() {
                             setCourseDetail(courseDetail.data.articleSubModule[0])
                         } else {
                             Log.d("Error Detail", "detail view : $result")
-                            showToast("Detail Failed: $subModulId")
+                            val intent = Intent(this@DetailSubModuleActivity, ExploreActivity::class.java)
+                            startActivity(intent)
                         }
                     }
                     detailSubModuleViewModel.getUserId().collect{ userId ->
