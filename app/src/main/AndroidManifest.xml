@@ -39,6 +39,9 @@
             android:name=".view.register.RegisterActivity"
             android:exported="false" />
         <activity
+            android:name=".view.chooseRole.ChooseRoleActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.explore.ExploreActivity"
             android:exported="true">
             <intent-filter>
