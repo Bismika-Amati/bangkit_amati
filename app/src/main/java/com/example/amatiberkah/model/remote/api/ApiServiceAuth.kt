@@ -16,7 +16,7 @@ interface ApiServiceAuth {
     @FormUrlEncoded
     suspend  fun registerByRole (
         @Query("role") role: String,
-        @Field("fullName") fullName: String,
+        @Field("fullname") fullname: String,
         @Field("email") email: String,
         @Field("password") password: String,
         @Field("phoneNumber") phoneNumber: String,

@@ -65,8 +65,8 @@ data class LoginResponseData(
 data class LoginResponseDataUser(
     @SerializedName("id")
     val id: String,
-    @SerializedName("fullName")
-    val fullName: String,
+    @SerializedName("fullname")
+    val fullname: String,
     @SerializedName("email")
     val email: String,
     @SerializedName("password")

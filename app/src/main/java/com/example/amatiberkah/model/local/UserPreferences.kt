@@ -18,11 +18,7 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
         }
     }
 
-    fun getUserId(): Flow<String?> {
-        return dataStore.data.map { preferences ->
-            preferences[USER_ID]
-        }
-    }
+
 
     suspend fun saveUserToken(token: String) {
         dataStore.edit { it[TOKEN_KEY] = token }
@@ -40,6 +36,12 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
 
     suspend fun saveUserEmail(email: String) {
         dataStore.edit { it[EMAIL] = email }
+    }
+
+    fun getUserId(): Flow<String?> {
+        return dataStore.data.map { preferences ->
+            preferences[USER_ID]
+        }
     }
 
     fun getUserDataEmail(): Flow<String?> {

@@ -96,13 +96,13 @@ class ExploreActivity : AppCompatActivity() {
                         }
                     }
 
-                    viewModel.getUserDataEmail().collect {email ->
-                        binding.statusBox.text = email
+                    viewModel.getUserDataName().collect {name ->
+                        binding.statusBox.text = name
                     }
 
-                    viewModel.getUserDataName().collect {name ->
-                        binding.usernameBox.text = name
-                    }
+//                    viewModel.getUserDataName().collect {name ->
+//                        binding.usernameBox.text = name
+//                    }
                 }
                 else {
                     val intent = Intent(this@ExploreActivity, LoginActivity::class.java)

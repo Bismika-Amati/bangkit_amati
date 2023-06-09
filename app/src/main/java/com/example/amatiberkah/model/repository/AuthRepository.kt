@@ -18,7 +18,7 @@ class AuthRepository @Inject constructor(
 
 
     suspend fun registerByRole(
-        fullName: String,
+        fullname: String,
         email: String,
         password: String,
         role: String,
@@ -33,7 +33,7 @@ class AuthRepository @Inject constructor(
     ): Flow<Result<RegisterResponse>> {
         return flow {
             val response = apiServiceAuth.registerByRole(
-                fullName,
+                fullname,
                 email,
                 password,
                 role,
@@ -64,8 +64,9 @@ class AuthRepository @Inject constructor(
             userPreferences.saveUserToken(
                 response.data.accessToken
             )
-            userPreferences.saveUserName(response.data.user.fullName)
+            userPreferences.saveUserName(response.data.user.fullname)
             userPreferences.saveUserEmail(response.data.user.email)
+            userPreferences.saveUserId(response.data.user.id)
             emit(Result.success(response))
         }.catch {
             emit(Result.failure(Throwable(handleError(it))))

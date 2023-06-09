@@ -68,7 +68,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun registerByRole(
-        fullName: String,
+        fullname: String,
         email: String,
         password: String,
         role: String,
@@ -84,7 +84,7 @@ class RegisterActivity : AppCompatActivity() {
         lifecycleScope.launch {
             try {
                 viewModel.registerByRole(
-                    fullName,
+                    fullname,
                     email,
                     password,
                     role,
