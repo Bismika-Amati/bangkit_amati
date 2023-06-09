@@ -14,6 +14,7 @@ import com.example.amatiberkah.model.remote.response.*
 import com.example.amatiberkah.view.exploreVillageDetail.ExploreVillageDetailActivity
 import com.example.amatiberkah.view.adapter.CourseAdapter
 import com.example.amatiberkah.view.adapter.VillageAdapter
+import com.example.amatiberkah.view.detail.DetailCourseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -105,6 +106,14 @@ class ExploreActivity : AppCompatActivity() {
         val adapter = CourseAdapter((listCourse ?: emptyList()))
         Log.d("CourseAdapter", "ListCourse: $listCourse")
         binding.courseReview.adapter = adapter
+
+        adapter.setOnItemClickCallback(object : CourseAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: DataItem) {
+                val intentDetail = Intent(this@ExploreActivity, DetailCourseActivity::class.java)
+                intentDetail.putExtra(DetailCourseActivity.EXTRA_COURSE, data.id)
+                startActivity(intentDetail)
+            }
+        })
     }
 
 
