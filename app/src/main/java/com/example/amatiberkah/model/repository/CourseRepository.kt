@@ -7,13 +7,14 @@ import com.example.amatiberkah.model.remote.response.DetailSubModuleResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.withContext
 
 import javax.inject.Inject
 
 class CourseRepository @Inject constructor(
-    private val apiServiceMasterData: ApiServiceMasterData
-){
+    private val apiServiceMasterData: ApiServiceMasterData,
 
+){
     suspend fun getAllModule(
         accessToken: String
     ): Flow<Result<CoursesResponse>> {
@@ -60,4 +61,5 @@ class CourseRepository @Inject constructor(
             emit(Result.failure(throwable))
         }
     }
+
 }

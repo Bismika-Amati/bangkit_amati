@@ -47,4 +47,8 @@ class ExploreViewModel @Inject constructor(
         return auth.getUserDataEmail()
     }
 
+    suspend fun logOut(): Flow<Result<Unit>> {
+        return auth.logout()
+    }
+
 }

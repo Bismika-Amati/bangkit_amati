@@ -18,6 +18,7 @@ import com.example.amatiberkah.view.exploreVillageDetail.ExploreVillageDetailAct
 import com.example.amatiberkah.view.adapter.CourseAdapter
 import com.example.amatiberkah.view.adapter.VillageAdapter
 import com.example.amatiberkah.view.detail.DetailCourseActivity
+import com.example.amatiberkah.view.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -48,22 +49,10 @@ class ExploreActivity : AppCompatActivity() {
         val layoutManager2 = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.villageReview.layoutManager = layoutManager2
 
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchView = findViewById<SearchView>(R.id.searchBarExplore)
-//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String): Boolean {
-//
-//                performSearch(query)
-//                return true
-//            }
-//
-//            override fun onQueryTextChange(newText: String): Boolean {
-//
-//                filterSearchResults(newText)
-//                return true
-//            }
-//        })
 
+        binding.logoutButton.setOnClickListener {
+            logOutHandler()
+        }
     }
 
 
@@ -133,6 +122,21 @@ class ExploreActivity : AppCompatActivity() {
                 startActivity(intentDetail)
             }
         })
+    }
+
+    private fun logOutHandler() {
+        lifecycleScope.launch {
+            viewModel.logOut().collect { result ->
+                if (result.isSuccess) {
+                    showToast("Logout Successful")
+                    val intent = Intent(this@ExploreActivity, LoginActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                } else {
+                    showToast("Logout Failed: ${result.exceptionOrNull()?.message}")
+                }
+            }
+        }
     }
 
 

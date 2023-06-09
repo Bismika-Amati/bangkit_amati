@@ -9,7 +9,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import com.example.amatiberkah.model.remote.response.LoginResponseDataUser
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-
+import kotlinx.coroutines.withContext
 
 
 class UserPreferences private constructor(private val dataStore: DataStore<Preferences>) {
@@ -18,7 +18,6 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
             preferences[TOKEN_KEY]
         }
     }
-
 
 
     suspend fun saveUserToken(token: String) {
