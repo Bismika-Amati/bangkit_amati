@@ -2,12 +2,12 @@ package com.example.amatiberkah.model.repository
 
 import com.example.amatiberkah.model.remote.api.ApiServiceMasterData
 import com.example.amatiberkah.model.remote.response.CoursesResponse
-import com.example.amatiberkah.model.remote.response.DataItem
 import com.example.amatiberkah.model.remote.response.DetailCourseResponse
-import com.example.amatiberkah.model.remote.response.SubModuleResponse
+import com.example.amatiberkah.model.remote.response.DetailSubModuleResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
+
 import javax.inject.Inject
 
 class CourseRepository @Inject constructor(
@@ -43,6 +43,18 @@ class CourseRepository @Inject constructor(
     ): Flow<Result<DetailCourseResponse>> {
         return flow {
             val response = apiServiceMasterData.getDetailCourse(id, accessToken)
+            emit(Result.success(response))
+        }.catch { throwable ->
+            emit(Result.failure(throwable))
+        }
+    }
+
+    suspend fun getDetailSubModule(
+        id: String,
+        accessToken: String
+    ): Flow<Result<DetailSubModuleResponse>> {
+        return flow {
+            val response = apiServiceMasterData.getDetailSubModule(id, accessToken)
             emit(Result.success(response))
         }.catch { throwable ->
             emit(Result.failure(throwable))

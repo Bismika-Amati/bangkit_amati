@@ -1,14 +1,17 @@
 package com.example.amatiberkah.view.explore
 
+import android.app.SearchManager
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.amatiberkah.R
 import com.example.amatiberkah.databinding.ActivityExploreBinding
 import com.example.amatiberkah.model.remote.response.*
 import com.example.amatiberkah.view.exploreVillageDetail.ExploreVillageDetailActivity
@@ -44,6 +47,22 @@ class ExploreActivity : AppCompatActivity() {
 
         val layoutManager2 = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         binding.villageReview.layoutManager = layoutManager2
+
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val searchView = findViewById<SearchView>(R.id.searchBarExplore)
+//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String): Boolean {
+//
+//                performSearch(query)
+//                return true
+//            }
+//
+//            override fun onQueryTextChange(newText: String): Boolean {
+//
+//                filterSearchResults(newText)
+//                return true
+//            }
+//        })
 
     }
 
@@ -102,13 +121,13 @@ class ExploreActivity : AppCompatActivity() {
         }
     }
 
-    private fun setListCourse(listCourse: List<DataItem>?){
+    private fun setListCourse(listCourse: List<Data>?){
         val adapter = CourseAdapter((listCourse ?: emptyList()))
         Log.d("CourseAdapter", "ListCourse: $listCourse")
         binding.courseReview.adapter = adapter
 
         adapter.setOnItemClickCallback(object : CourseAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: DataItem) {
+            override fun onItemClicked(data: Data) {
                 val intentDetail = Intent(this@ExploreActivity, DetailCourseActivity::class.java)
                 intentDetail.putExtra(DetailCourseActivity.EXTRA_COURSE, data.id)
                 startActivity(intentDetail)

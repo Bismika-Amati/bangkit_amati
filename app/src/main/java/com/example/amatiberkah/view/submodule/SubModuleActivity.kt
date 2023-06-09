@@ -1,23 +1,21 @@
 
 package com.example.amatiberkah.view.submodule
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.amatiberkah.databinding.ActivitySubModuleBinding
 import com.example.amatiberkah.model.remote.response.Data
-import com.example.amatiberkah.model.remote.response.DataItem
 import com.example.amatiberkah.model.remote.response.SubModuleItem
 import com.example.amatiberkah.view.adapter.CourseAdapter
 import com.example.amatiberkah.view.adapter.SubModuleAdapter
 import com.example.amatiberkah.view.detail.DetailCourseActivity
 import com.example.amatiberkah.view.detailsub.DetailSubModuleActivity
-import com.example.amatiberkah.view.explore.ExploreViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -73,6 +71,14 @@ class SubModuleActivity : AppCompatActivity() {
         val adapter = SubModuleAdapter(listSubModule ?: emptyList())
         Log.d("SubModuleAdapter", "listSubModule: $listSubModule")
         binding.rvCourse.adapter = adapter
+
+        adapter.setOnItemClickCallback(object : SubModuleAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: SubModuleItem) {
+                val intentDetail = Intent(this@SubModuleActivity, DetailSubModuleActivity::class.java)
+                intentDetail.putExtra(DetailSubModuleActivity.EXTRA_COURSE, data.courseId)
+                startActivity(intentDetail)
+            }
+        })
     }
 
     private fun showToast(message: String) {

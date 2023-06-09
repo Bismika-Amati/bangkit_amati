@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.amatiberkah.databinding.ItemCoursesBinding
 
-import com.example.amatiberkah.model.remote.response.DataItem
+import com.example.amatiberkah.model.remote.response.Data
 
 
 
-class CourseAdapter(private val listCourse: List<DataItem>) : RecyclerView.Adapter<CourseAdapter.ViewHolder>() {
+class CourseAdapter(private val listCourse: List<Data>) : RecyclerView.Adapter<CourseAdapter.ViewHolder>() {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -41,6 +41,6 @@ class CourseAdapter(private val listCourse: List<DataItem>) : RecyclerView.Adapt
     }
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: DataItem)
+        fun onItemClicked(data: Data)
     }
 }

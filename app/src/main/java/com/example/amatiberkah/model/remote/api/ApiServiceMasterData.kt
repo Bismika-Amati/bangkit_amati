@@ -35,4 +35,10 @@ interface ApiServiceMasterData {
 //    suspend fun getListSubModule(
 //        @Header("accessToken") accessToken: String
 //    ) :
+
+    @GET("sub-modules/{id}")
+    suspend fun getDetailSubModule(
+        @Path("id") id: String,
+        @Header("accessToken") accessToken: String
+    ) : DetailSubModuleResponse
 }

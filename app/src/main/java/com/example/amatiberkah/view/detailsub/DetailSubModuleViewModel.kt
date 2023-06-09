@@ -1,24 +1,26 @@
-package com.example.amatiberkah.view.detail
+package com.example.amatiberkah.view.detailsub
 
 import androidx.lifecycle.ViewModel
 import com.example.amatiberkah.model.remote.response.DetailCourseResponse
+import com.example.amatiberkah.model.remote.response.DetailSubModuleResponse
 import com.example.amatiberkah.model.repository.AuthRepository
 import com.example.amatiberkah.model.repository.CourseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
+
 @HiltViewModel
-class DetailCourseViewModel @Inject constructor(
+class DetailSubModuleViewModel @Inject constructor(
+    private val course : CourseRepository,
     private val auth : AuthRepository,
-    private val course : CourseRepository
 ): ViewModel() {
 
-    suspend fun getCourseDetail(
+    suspend fun getDetailSubModule(
         id: String,
-        authorization: String
-    ): Flow<Result<DetailCourseResponse>> {
-        return course.getDetailModule(id, authorization)
+        accessToken: String
+    ): Flow<Result<DetailSubModuleResponse>> {
+        return course.getDetailSubModule(id, accessToken)
     }
 
     fun getToken(): Flow<String?> {

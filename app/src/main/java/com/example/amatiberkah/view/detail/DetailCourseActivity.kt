@@ -12,9 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.amatiberkah.R
 import com.example.amatiberkah.databinding.ActivityDetailCourseBinding
 import com.example.amatiberkah.model.remote.response.Data
-import com.example.amatiberkah.model.remote.response.DataItem
 import com.example.amatiberkah.view.adapter.DetailCoursePagerAdapter
-import com.example.amatiberkah.view.adapter.SectionPagerAdapter
 import com.example.amatiberkah.view.submodule.SubModuleActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator

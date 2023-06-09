@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class CoursesResponse(
 
 	@field:SerializedName("data")
-	val data: List<DataItem>? = null,
+	val data: List<Data>? = null,
 
 	@field:SerializedName("meta")
 	val meta: Meta? = null,

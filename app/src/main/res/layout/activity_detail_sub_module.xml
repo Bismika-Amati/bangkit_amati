@@ -6,4 +6,77 @@
     android:layout_height="match_parent"
     tools:context=".view.detailsub.DetailSubModuleActivity">
 
+<!--    <ImageButton-->
+<!--        android:id="@+id/btn_next"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:background="@android:color/primary_text_light"-->
+<!--        android:contentDescription="@string/next_button"-->
+<!--        android:src="@drawable/baseline_navigate_next_24"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/tv_title"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@id/tv_title" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/btn_back"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:background="@android:color/primary_text_light"-->
+<!--        android:contentDescription="@string/back_button"-->
+<!--        android:src="@drawable/baseline_navigate_before_24"-->
+<!--        app:layout_constraintTop_toTopOf="@id/tv_title"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/tv_title"-->
+<!--        app:layout_constraintStart_toStartOf="parent"/>-->
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/village_recommendation"
+        android:textColor="@color/green_army"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/vv_course"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <TextView
+        android:id="@+id/tv_course_title_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/course_title"
+        android:textAllCaps="true"
+        android:textColor="@color/green_army"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vv_course" />
+
+    <TextView
+        android:id="@+id/tv_course_content_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/paragraph_example"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_course_title_1" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
